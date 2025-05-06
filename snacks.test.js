@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, secondCreateSlug, isPalindrome } = require("./snacks")
+const { getInitials, createSlug, average, secondCreateSlug, isPalindrome, thirdCreateSlug, findPostById } = require("./snacks")
 
 // 🏆 Snack 1:
 test('La funzione getInitials restituisce le iniziali di un nome completo.', () => {
@@ -16,8 +16,8 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
 })
 
 // 🏆 Snack 4:
-test('La funzione secondCsreateSlug sostituisce gli spazi con -.', () => {
-	expect(secondCreateSlug("sostituisci gli spazi")).toBe("sostituisci-gli-spazi")
+test('La funzione secondCreateSlug sostituisce gli spazi con -.', () => {
+	expect(secondCreateSlug("Sostituisci gli spazi")).toBe("sostituisci-gli-spazi")
 })
 
 // 🏆 Snack 5:
@@ -26,4 +26,18 @@ test('La funzione isPalindrome verifica se una stringa è un palindromo.', () =>
 })
 
 // 🏆 Snack 6:
+test('La funzione thirdCreateSlug lancia un errore se il titolo è vuoto o non valido.', () => {
+	expect(() => thirdCreateSlug("")).toThrow()
+})
+
 // 🏆 Snack 7:
+test('La funzione findPostById restituisce il post corretto dato l’array di post e l’id', () => {
+	expect(findPostById(2))
+		.toEqual(
+			{
+				id: 2,
+				title: "Hobby",
+				slug: "pescare, mangiare, cantare"
+			}
+		)
+})

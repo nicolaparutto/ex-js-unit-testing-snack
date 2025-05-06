@@ -21,7 +21,7 @@ const average = (array) => {
 
 // 🏆 Snack 4:
 const secondCreateSlug = (frase) => {
-	return frase.split(" ").join("-")
+	return frase.split(" ").join("-").toLowerCase()
 }
 
 // 🏆 Snack 5:
@@ -30,14 +30,31 @@ const isPalindrome = (word) => {
 }
 
 // 🏆 Snack 6:
-// 🏆 Snack 7:
-// 🏆 Snack 8:
+const thirdCreateSlug = (title) => {
+	if (title.length === 0) {
+		throw new Error("Titolo non valido");
+	} else {
+		return title.split(" ").join("-").toLowerCase()
+	}
+}
 
+// 🏆 Snack 7:
+const posts = [
+	{ id: 1, title: "Alimenti", slug: "frutta, pesce, pollo" },
+	{ id: 2, title: "Hobby", slug: "pescare, mangiare, cantare" },
+	{ id: 3, title: "Sport", slug: "calcio, nuoto, tennis" }
+]
+const findPostById = (id) => {
+	const post = posts.find(post => post.id === id)
+	return post
+}
 
 module.exports = {
 	getInitials,
 	createSlug,
 	average,
 	secondCreateSlug,
-	isPalindrome
+	isPalindrome,
+	thirdCreateSlug,
+	findPostById
 }
